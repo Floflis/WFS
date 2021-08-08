@@ -8,8 +8,18 @@
                 <condition id="-2" name="On start of layout" sid="802396737879582" type="System" />
             </conditions>
             <actions>
-                <action id="1" name="Get item" sid="448912586278420" type="LocalStorage">
+                <action disabled="1" id="5" name="Check item exists" sid="448912586278420" type="LocalStorage">
                     <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
+                </action>
+                <action id="1" name="Get item" sid="553508143459995" type="LocalStorage">
+                    <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
+                </action>
+                <action id="7" name="Add item" sid="546659209298364" type="List2">
+                    <param id="0" name="Text">&quot;Checking if WFS has been ever initiated...&quot;</param>
+                </action>
+                <action id="14" name="Log" sid="639471521788861" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Checking if WFS has been ever initiated...&quot;</param>
                 </action>
                 <action disabled="1" id="7" name="Add item" sid="821341498394885" type="List">
                     <param id="0" name="Text">&quot;Flower.jpg&quot;</param>
@@ -30,10 +40,6 @@
                 <condition id="0" name="On clicked" sid="800195685302576" type="Button" />
             </conditions>
             <actions>
-                <action id="0" name="Set item" sid="892631813944595" type="LocalStorage">
-                    <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
-                    <param id="1" name="Value">&quot;true&quot;</param>
-                </action>
                 <action id="0" name="Set item" sid="536320574670468" type="LocalStorage">
                     <param id="0" name="Key">&quot;file_1&quot;</param>
                     <param id="1" name="Value">&quot;Flower.jpg&quot;</param>
@@ -52,19 +58,43 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="794712022392314">
+        <event-block disabled="1" sid="794712022392314">
             <conditions>
-                <condition id="1" name="On item get" sid="330878196863085" type="LocalStorage">
+                <condition id="9" name="On item exists" sid="926843070955324" type="LocalStorage">
                     <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
                 </condition>
-                <condition id="12" name="Compare value" sid="812620664341200" type="LocalStorage">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Value">&quot;true&quot;</param>
+            </conditions>
+            <actions>
+                <action id="7" name="Add item" sid="815206305176504" type="List2">
+                    <param id="0" name="Text">&quot;WFS is all set-up.&quot;</param>
+                </action>
+                <action id="14" name="Log" sid="574375400331566" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;WFS is all set-up.&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="142507576686748">
+            <conditions>
+                <condition id="10" name="On item missing" sid="682897195478138" type="LocalStorage">
+                    <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="7" name="Add item" sid="937051564966939" type="List2">
+                    <param id="0" name="Text">&quot;Initializing WFS...&quot;</param>
+                </action>
+                <action id="14" name="Log" sid="210167534223278" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Initializing WFS...&quot;</param>
+                </action>
+                <action id="0" name="Set item" sid="892631813944595" type="LocalStorage">
+                    <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
+                    <param id="1" name="Value">&quot;true&quot;</param>
+                </action>
+            </actions>
         </event-block>
-        <event-block sid="605073672476580">
+        <event-block disabled="1" sid="605073672476580">
             <conditions>
                 <condition id="-10" name="For" sid="141709889340107" type="System">
                     <param id="0" name="Name">&quot;&quot;</param>
@@ -78,7 +108,7 @@
                 </action>
             </actions>
             <sub-events>
-                <event-block sid="540903699659672">
+                <event-block disabled="1" sid="540903699659672">
                     <conditions>
                         <condition id="1" name="On item get" sid="770565526394693" type="LocalStorage">
                             <param id="0" name="Key">&quot;file_&quot; &amp; loopindex</param>
@@ -91,6 +121,22 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="190916004361327">
+            <conditions>
+                <condition id="1" name="On item get" sid="430727346281813" type="LocalStorage">
+                    <param id="0" name="Key">&quot;WFSinitiated&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Add item" sid="651414246603270" type="List2">
+                    <param id="0" name="Text">&quot;WFS is all set-up.&quot;</param>
+                </action>
+                <action id="14" name="Log" sid="256399330184840" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;WFS is all set-up.&quot;</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

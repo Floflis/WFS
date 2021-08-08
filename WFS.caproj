@@ -10,9 +10,11 @@
     <unique-id>31xhkf82mgbfq</unique-id>
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors />
     <used-effects />
@@ -51,6 +53,18 @@
         <object-type name="Button" sid="787440241590272">
             <plugin id="Button" />
         </object-type>
+        <object-type name="Text" sid="984960870378699">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="List2" sid="991401287640688">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="Text2" sid="684194580738270">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Browser" sid="989457620987445">
+            <plugin id="Browser" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -61,6 +75,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="LocalStorage" uid="0" />
+        <global-instance type="Browser" uid="6" />
     </global-instances>
     <sounds-folder />
     <music-folder />
