@@ -4,6 +4,7 @@
     <name>Event sheet 1</name>
     <events>
         <variable constant="0" name="load_files_loop" sid="357745442500858" static="0" type="number">0</variable>
+        <comment>Tell user it is checking if WFS has been initiated; both on UI and at console log.</comment>
         <event-block sid="259251318616095">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="802396737879582" type="System" />
@@ -22,29 +23,14 @@
                     <param id="0" name="Type">0</param>
                     <param id="1" name="Message">&quot;Checking if WFS has been ever initiated...&quot;</param>
                 </action>
-                <action disabled="1" id="7" name="Add item" sid="821341498394885" type="List">
-                    <param id="0" name="Text">&quot;Flower.jpg&quot;</param>
-                </action>
-                <action disabled="1" id="7" name="Add item" sid="592205261080784" type="List">
-                    <param id="0" name="Text">&quot;Fabric.png&quot;</param>
-                </action>
-                <action disabled="1" id="7" name="Add item" sid="781608621088711" type="List">
-                    <param id="0" name="Text">&quot;Floflis.apps&quot;</param>
-                </action>
-                <action disabled="1" id="7" name="Add item" sid="285956094648585" type="List">
-                    <param id="0" name="Text">&quot;FelipeNeto.mkv&quot;</param>
-                </action>
             </actions>
         </event-block>
+        <comment>When the &quot;Store data!&quot; button is clicked, store files&apos; ID+name in WebStorage (should be later migrated to LocalStorage, soon)</comment>
         <event-block sid="218530988549842">
             <conditions>
                 <condition id="0" name="On clicked" sid="800195685302576" type="Button" />
             </conditions>
             <actions>
-                <action disabled="1" id="0" name="Set item" sid="536320574670468" type="LocalStorage">
-                    <param id="0" name="Key">&quot;file_1&quot;</param>
-                    <param id="1" name="Value">&quot;Flower.jpg&quot;</param>
-                </action>
                 <action id="0" name="Set local value" sid="471422579795851" type="WebStorage">
                     <param id="0" name="Key">&quot;file_1&quot;</param>
                     <param id="1" name="Value">&quot;Flower.jpg&quot;</param>
@@ -55,10 +41,6 @@
                 <action id="14" name="Log" sid="190534492874579" type="Browser">
                     <param id="0" name="Type">0</param>
                     <param id="1" name="Message">&quot;Flower.jpg has been stored.&quot;</param>
-                </action>
-                <action disabled="1" id="0" name="Set item" sid="957827559115772" type="LocalStorage">
-                    <param id="0" name="Key">&quot;file_2&quot;</param>
-                    <param id="1" name="Value">&quot;Fabric.png&quot;</param>
                 </action>
                 <action id="0" name="Set local value" sid="783111927936304" type="WebStorage">
                     <param id="0" name="Key">&quot;file_2&quot;</param>
@@ -71,10 +53,6 @@
                     <param id="0" name="Type">0</param>
                     <param id="1" name="Message">&quot;Fabric.png has been stored.&quot;</param>
                 </action>
-                <action disabled="1" id="0" name="Set item" sid="355509939275493" type="LocalStorage">
-                    <param id="0" name="Key">&quot;file_3&quot;</param>
-                    <param id="1" name="Value">&quot;Floflis.apps&quot;</param>
-                </action>
                 <action id="0" name="Set local value" sid="952619933641423" type="WebStorage">
                     <param id="0" name="Key">&quot;file_3&quot;</param>
                     <param id="1" name="Value">&quot;Floflis.apps&quot;</param>
@@ -85,10 +63,6 @@
                 <action id="14" name="Log" sid="950601557182374" type="Browser">
                     <param id="0" name="Type">0</param>
                     <param id="1" name="Message">&quot;Floflis.apps has been stored.&quot;</param>
-                </action>
-                <action disabled="1" id="0" name="Set item" sid="999383391192310" type="LocalStorage">
-                    <param id="0" name="Key">&quot;file_4&quot;</param>
-                    <param id="1" name="Value">&quot;FelipeNeto.mkv&quot;</param>
                 </action>
                 <action id="0" name="Set local value" sid="513294204013134" type="WebStorage">
                     <param id="0" name="Key">&quot;file_4&quot;</param>
@@ -103,6 +77,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>From previous event. If it detects WFS has already been initiated, log it.</comment>
         <event-block sid="190916004361327">
             <conditions>
                 <condition id="1" name="On item get" sid="430727346281813" type="LocalStorage">
@@ -119,6 +94,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>Also log else, if WFS hasn&apos;t been initiated yet.</comment>
         <event-block sid="142507576686748">
             <conditions>
                 <condition id="10" name="On item missing" sid="682897195478138" type="LocalStorage">
@@ -139,79 +115,7 @@
                 </action>
             </actions>
         </event-block>
-        <event-block disabled="1" sid="605073672476580">
-            <conditions>
-                <condition id="-10" name="For" sid="141709889340107" type="System">
-                    <param id="0" name="Name">&quot;&quot;</param>
-                    <param id="1" name="Start index">1</param>
-                    <param id="2" name="End index">LocalStorage.KeyCount</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="1" name="Get item" sid="186439678751449" type="LocalStorage">
-                    <param id="0" name="Key">&quot;file_&quot; &amp; loopindex</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block disabled="1" sid="540903699659672">
-            <conditions>
-                <condition id="1" name="On item get" sid="770565526394693" type="LocalStorage">
-                    <param id="0" name="Key">&quot;file_&quot; &amp; loopindex</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="7" name="Add item" sid="145266249068752" type="List">
-                    <param id="0" name="Text">LocalStorage.ItemValue</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block disabled="1" sid="639318279008027">
-            <conditions>
-                <condition id="-10" name="For" sid="316866845194490" type="System">
-                    <param id="0" name="Name">&quot;&quot;</param>
-                    <param id="1" name="Start index">0</param>
-                    <param id="2" name="End index">WebStorage.LocalCount</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="7" name="Add item" sid="971089200941157" type="List">
-                    <param id="0" name="Text">WebStorage.LocalAt(loopindex)</param>
-                </action>
-                <action disabled="1" id="7" name="Add item" sid="296954334964920" type="List2">
-                    <param id="0" name="Text">WebStorage.LocalAt(loopindex) &amp; &quot; has been stored.&quot;</param>
-                </action>
-                <action disabled="1" id="14" name="Log" sid="461685660329638" type="Browser">
-                    <param id="0" name="Type">0</param>
-                    <param id="1" name="Message">WebStorage.LocalAt(loopindex) &amp; &quot; has been stored.&quot;</param>
-                </action>
-            </actions>
-            <sub-events>
-                <event-block sid="767813335025929">
-                    <conditions />
-                    <actions>
-                        <action disabled="1" id="-24" name="Stop loop" sid="371892098728867" type="System" />
-                    </actions>
-                </event-block>
-                <event-block disabled="1" sid="246775281245975">
-                    <conditions>
-                        <condition id="3" name="Local key exists" sid="584231317250399" type="WebStorage">
-                            <param id="0" name="Key">&quot;file_&quot; &amp; loopindex</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="7" name="Add item" sid="971134369933208" type="List">
-                            <param id="0" name="Text">WebStorage.LocalKeyAt(loopindex)</param>
-                        </action>
-                        <action disabled="1" id="7" name="Add item" sid="592085064441668" type="List">
-                            <param id="0" name="Text">WebStorage.LocalValue(&quot;loopindex&quot;)</param>
-                        </action>
-                        <action disabled="1" id="7" name="Add item" sid="699635371314297" type="List">
-                            <param id="0" name="Text">WebStorage.SessionKeyAt(loopindex)</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
+        <comment>A loop that lists files; this is a miraculous technique that should inspire the next apps/scripts/games I make &lt;3</comment>
         <event-block sid="219234157895610">
             <conditions>
                 <condition id="-10" name="For" sid="265500376543131" type="System">
@@ -220,12 +124,7 @@
                     <param id="2" name="End index">WebStorage.LocalCount-1</param>
                 </condition>
             </conditions>
-            <actions>
-                <action disabled="1" id="-10" name="Add to" sid="984783140923253" type="System">
-                    <param id="0" name="Variable">load_files_loop</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
                 <event-block sid="635400916988622">
                     <conditions>
@@ -243,18 +142,10 @@
                         <action id="7" name="Add item" sid="817486782093777" type="List">
                             <param id="0" name="Text">WebStorage.LocalAt(loopindex)</param>
                         </action>
-                        <action disabled="1" id="7" name="Add item" sid="204048523885974" type="List2">
-                            <param id="0" name="Text">WebStorage.LocalAt(loopindex) &amp; &quot; has been stored.&quot;</param>
-                        </action>
-                        <action disabled="1" id="14" name="Log" sid="113577501413305" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">WebStorage.LocalAt(loopindex) &amp; &quot; has been stored.&quot;</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="533096553501560">
                     <conditions>
-                        <condition disabled="1" id="-22" name="Else" sid="530255346214644" type="System" />
                         <condition id="-14" name="Compare variable" sid="766089230172258" type="System">
                             <param id="0" name="Variable">load_files_loop</param>
                             <param id="1" name="Comparison">5</param>
